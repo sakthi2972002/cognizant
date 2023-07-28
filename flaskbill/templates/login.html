@@ -1,0 +1,132 @@
+
+{% block content %} 
+<head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="icon" type="image/png" href="./static/assets/img/favicon.png">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="./static/assets/css/bootstrap.min.css">
+      <!-- FontAwesome CSS -->
+      <link rel="stylesheet" href="./static/assets/css/all.min.css">
+      <link rel="stylesheet" href="./static/assets/css/uf-style.css">
+      <title>Login</title>
+
+      <style>
+        .uf-form-signin{
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        }
+    
+
+    </style>
+
+
+
+</head>
+
+
+    <div class="uf-form-signin">
+      <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div class="text-center">
+          <a href="{{ url_for('home')}}"><img src="./static/assets/img/favicon.png" alt="" width="80" height="80"></a>
+        </div>
+
+
+
+        <fieldset class="form-group">
+          <h1 class="text-black h3">Account Login</h1>
+      
+          <div class="form-group">
+              {{ form.email.label(class="form-control-label") }}
+              
+              {% if form.email.errors %}
+                  {{ form.email(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                  {% for error in form.email.errors %}
+                      <span>{{ error }}</span>
+                  {% endfor %}
+              </div>
+              {% else %}
+                  {{ form.email(class="form-control form-control-lg") }}
+              {% endif %}
+
+          </div>
+          <div class="form-group">
+              {{ form.password.label(class="form-control-label") }}
+              
+              {% if form.password.errors %}
+                  {{ form.password(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                  {% for error in form.password.errors %}
+                      <span>{{ error }}</span>
+                  {% endfor %}
+              </div>
+              {% else %}
+                  {{ form.password(class="form-control form-control-lg") }}
+              {% endif %}
+
+          </div class="form-check">
+              {{ form.remember(class="form-check-input") }}
+              {{ form.remember.label(class="form-check-label") }}
+
+          <div>
+
+          </div>
+      </fieldset>
+
+        <div class="d-flex mb-3 justify-content-between">
+    
+          <a href="#">Forgot password?</a>
+        </div>
+
+
+
+
+        <div class="form-group">
+          {{ form.submit(class="btn uf-btn-primary btn-lg") }}
+      </div> 
+
+
+
+
+
+
+
+
+
+
+
+        <div class="d-flex mb-3">
+            <div class="dropdown-divider m-auto w-25"></div>
+            <small class="text-nowrap text-white">Or login with</small>
+            <div class="dropdown-divider m-auto w-25"></div>
+        </div>
+        <div class="uf-social-login d-flex justify-content-center">
+          <a href="#" class="uf-social-ic" title="Login with Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="uf-social-ic" title="Login with Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="uf-social-ic" title="Login with Google"><i class="fab fa-google"></i></a>
+        </div>
+
+
+
+
+        <div class="mt-4 text-center">
+          <small class="text-black">
+              Don't have an account?<a class="ml-2" href="{{ url_for('register') }}"> Sign Un Now</a>
+            </small>
+        </div>
+
+
+        </div>
+      </form>
+    </div>
+
+    <!-- JavaScript -->
+
+    <!-- Separate Popper and Bootstrap JS -->
+    <script src="./static/assets/js/popper.min.js"></script>
+    <script src="./static/assets/js/bootstrap.min.js"></script>
+
+{% endblock content %}
